@@ -81,3 +81,11 @@ class BaseUser(UUIDMixin, TimestampMixin):
         title="Active",
         description="Indicates if the user account is active",
     )
+
+
+class Customer(BaseUser, UserPerm):
+    """
+    Customer class representing a customer with inherited basic user information.
+
+    Inherits from BaseUser class.
+    """
