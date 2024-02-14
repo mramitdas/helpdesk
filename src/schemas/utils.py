@@ -1,5 +1,6 @@
 from datetime import datetime
 from typing import Optional
+from uuid import uuid4
 
 import pytz
 from pydantic import BaseModel, Field
@@ -24,3 +25,20 @@ class TimestampMixin(BaseModel):
         default_factory=lambda: datetime.now(pytz.timezone("Asia/Kolkata"))
     )
     updated_at: Optional[datetime] = None
+
+
+class UUIDMixin(BaseModel):
+    """
+    A Pydantic mixin class to provide a UUID field.
+
+    This mixin class extends Pydantic's `BaseModel` to include a UUID field named `uuid`.
+    The UUID is generated using `uuid.uuid4().hex` when an instance of a model that inherits from this mixin is created.
+
+    Attributes:
+        uuid (str): The UUID string for the object.
+
+    Note:
+        - The UUID is generated using `uuid.uuid4().hex`.
+    """
+
+    uuid: str = Field(default_factory=lambda: uuid4().hex)
