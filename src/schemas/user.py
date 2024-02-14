@@ -106,3 +106,20 @@ class SupportPerson(BaseUser, UserPerm):
         title="Support User",
         description="Indicates if the user is a support person (Service Provider)",
     )
+
+
+class Admin(BaseUser, UserPerm):
+    """
+    Admin class representing an admin with inherited basic user information and permissions.
+
+    Inherits from BaseUser and UserPerm classes.
+
+    Attributes:
+        is_admin (bool): Indicates if the user is an admin. Default is True.
+    """
+
+    is_admin: bool = Field(
+        default=True,
+        title="Admin User",
+        description="Indicates if the user is an admin",
+    )
