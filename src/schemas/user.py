@@ -123,3 +123,17 @@ class Admin(BaseUser, UserPerm):
         title="Admin User",
         description="Indicates if the user is an admin",
     )
+
+
+class SuperUser(BaseUser, UserPerm):
+    """
+    SuperUser class representing a superuser with inherited basic user information and permissions.
+
+    Inherits from BaseUser and UserPerm classes.
+    """
+
+    is_superuser: bool = Field(
+        default=True,
+        title="Superuser",
+        description="Indicates if the user is a superuser",
+    )
