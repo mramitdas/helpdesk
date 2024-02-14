@@ -89,3 +89,20 @@ class Customer(BaseUser, UserPerm):
 
     Inherits from BaseUser class.
     """
+
+
+class SupportPerson(BaseUser, UserPerm):
+    """
+    SupportPerson class representing a support person with inherited basic user information and permissions.
+
+    Inherits from BaseUser and UserPerm classes.
+
+    Attributes:
+        is_sp (bool): Indicates if the user is a support person. Default is True.
+    """
+
+    is_sp: bool = Field(
+        default=True,
+        title="Support User",
+        description="Indicates if the user is a support person (Service Provider)",
+    )
